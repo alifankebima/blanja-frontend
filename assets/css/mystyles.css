@@ -1,0 +1,179 @@
+/* background color palette */
+.soft-black   { background-color: #222222; }
+.dark-gray    { background-color: #9B9B9B; }
+.light-gray   { background-color: #D4D4D4; }
+.soft-white   { background-color: #F9F9F9; }
+.white        { background-color: #FFFFFF; }
+.light-orange { background-color: #F01F0E; }
+.dark-orange  { background-color: #DB3022; }
+.green        { background-color: #2AA952; }
+
+/* text color palette */
+.text-soft-black   { color: #222222; }
+.text-dark-gray    { color: #9B9B9B; }
+.text-light-gray   { color: #D4D4D4; }
+.text-soft-white   { color: #F9F9F9; }
+.text-white        { color: #FFFFFF; }
+.text-light-orange { color: #F01F0E; }
+.text-dark-orange  { color: #DB3022; }
+.text-green        { color: #2AA952; }
+
+/* Metropolis font */
+/* Thin */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-Thin.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-ThinItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+}
+/* Extra Light */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-ExtraLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-ExtraLightItalic.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+}
+/* Light */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+}
+/* Regular */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-RegularItalic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+}
+/* Medium */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+}
+/* Semi Bold */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-SemiBoldItalic.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+}
+/* Bold */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+}
+/* Extra Bold */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-ExtraBoldItalic.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+}
+/* Black */
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Metropolis";
+    src: url('/assets/font/metropolis/Metropolis-BlackItalic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Apply Font to all texts */
+* {
+    font-family: 'Metropolis';
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* sign up button */
+.button {
+    background-color: #DB3022;
+    color: #FFFFFF;
+    border: 1px solid #DB3022;
+    transition-duration: 0.2s;
+}
+.button.signup-customer {
+    background-color: #FFFFFF;
+    border: 1px solid #9B9B9B;
+    color: #9B9B9B;
+    border-radius: 4px 0px 0px 4px;
+    width: 123px;
+    height: 48px;
+}
+.button.signup-seller {
+    background-color: #FFFFFF;
+    border: 1px solid #9B9B9B;
+    color: #9B9B9B;
+    border-radius: 0px 4px 4px 0px;
+    width: 123px;
+    height: 48px;
+}
+.button.create-account {
+    border-radius: 25px;
+    width:100%;
+    height:48px;
+}
+.button.active{
+    background-color: #DB3022;
+    border: 1px solid #DB3022;
+    color: #FFFFFF;
+}

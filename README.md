@@ -4,4 +4,4 @@ this repository also serves as a learning exercise at HTML Slicing and using boo
 
 # Usage
 For now this is just an HTML CSS slicing, there's no frontend js library or framework being used.
-Clone this repository with git clone `https://github.com/breadsticks64/blanja_backend.git`
+Clone this repository with `git clone https://github.com/breadsticks64/blanja_backend.git`
