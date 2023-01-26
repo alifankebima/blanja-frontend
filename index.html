@@ -1,12 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blanja</title>
-</head>
-<body>
-    <a href="/account/signup.html">Sign Up</a>
-</body>
+    <link rel="stylesheet" href="/assets/css/mystyles.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="icon" href="/assets/svg/logo.svg">
+    <title>Blanja - Home</title>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <img src="assets/svg/logo.svg" alt="logo"/>
+          <h5 class="text-dark-orange px-3">Blanja</h5>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <!-- search -->
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li class="nav-item ml-3">
+                <input class="form-control mr-2 input" type="search" placeholder="Search" aria-label="Search"/>
+              </li>
+              <li>
+                <button class="btn btn-default" type="submit">
+                  <img src="/assets/svg/search.svg"/>
+                </button>
+              </li>
+              <li>
+                <a href="#" class="mr-4">
+                  <img src="/assets/svg/shopping-cart.svg" alt="cart"/>
+                </a>
+              </li>
+            </ul>
+
+            <div class="d-flex">
+              <button class="button px-4 py-1">
+                <a class="text-white" href="/pages/login.html">Login</a>
+              </button>
+              <button class="button px-4 py-1">
+                <a class="text-white" href="/pages/register.html">Signup</a>
+              </button>
+            </form>
+          </div>
+          
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+              <ol class="carousel-indicators">
+                <li data-target="#categoryCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#categoryCarousel" data-slide-to="1"></li>
+                <li data-target="#categoryCarousel" data-slide-to="2"></li>
+                <li data-target="#categoryCarousel" data-slide-to="3"></li>
+              </ol>
+
+              <div class="carousel-inner">
+                <div class="carousel-item active col-12">
+                  <img src="assets/img/carousel/carousel-1.png" class="w-100" alt="Carousel-1"/>
+                </div>
+                <div class="carousel-item col-12">
+                  <img src="assets/img/carousel/carousel-2.png" class="w-100" alt="Carousel-2"/>
+                </div>
+                <div class="carousel-item col-12">
+                  <img src="assets/img/carousel/carousel-1.png" class="w-100" alt="Carousel-3"/>
+                </div>
+                <div class="carousel-item col-12">
+                  <img src="assets/img/carousel/carousel-2.png" class="w-100" alt="Carousel-4"/>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-target="#categoryCarousel" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#categoryCarousel" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mt-5">
+        <h2 class="ml-2 fw-bolder">Category</h2>
+        <p class="ml-2">What are you currently looking for?</p>
+        <div class="mt-5">
+          <div class="row">
+            <div class="col-md-2 col-sm-6 col-3 mb-5">
+              <div>
+                <img class="category" src="/assets/img/category/t-shirt.png" alt="t-shirt"/>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-3 mb-5">
+              <div>
+                <img class="category" src="/assets/img/category/shorts.png" alt="shorts"/>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-3 mb-5">
+              <div>
+                <img class="category" src="/assets/img/category/jacket.png" alt="jacket"/>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-3 mb-5">
+              <div>
+                <img class="category" src="/assets/img/category/pants.png" alt="pants"/>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-6 col-3 mb-5">
+              <div>
+                <img class="category" src="/assets/img/category/shoes.png" alt="shoes"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mt-5">
+        <h2 class="ml-2 fw-bolder">New</h2>
+        <p class="ml-2">You've never seen it before!</p>
+        <div class="mt-5">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container mt-5">
+        <h2 class="ml-2">Popular</h2>
+        <p class="ml-2">Find clothes that are trending recently</p>
+        <div class="mt-5">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-5">
+              <div class="border rounded product">
+                <img class="w-50" src="/assets/img/category/formal-suit.png" alt="cloth" />
+                <div class="p-2">
+                  <h6 class="card-title">Men's formal suit - Black & White</h5>
+                  <h5 class="text-dark-orange">$ 40.0</h5>
+                  <img src="/assets/img/product/Rating 5 stars.png" alt="stars" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="/assets/js/bootstrap.min.js"></script>
+  </body>
 </html>
