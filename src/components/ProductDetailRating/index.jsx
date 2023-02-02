@@ -1,29 +1,29 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar, faCircle, faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const ProductDetailRating = () => {
+const ProductDetailRating = (props) => {
   return (
     <div className="container">
       <div className="row">
         <div className="col-2">
-          <div className="row">
-            <div className="col-12 fs-1 fw-bolder">
+            <span className="fs-1 fw-bolder">
               5.0
-            </div>
-            <div className="col-12">
-              /10
-            </div>
+            </span>
+            <span>
+              /{props.rating}
+            </span>
             <div className="col-12 text-warning">
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
             </div>
-          </div>
         </div>
         <div className="col-3">
           <div className="row">
-            <div className="col-12">
+            {/* <div className="col-12">
               <i className="fa-solid fa-star text-warning"></i> 5
             </div>
             <div className="col-12">
@@ -37,7 +37,7 @@ const ProductDetailRating = () => {
             </div>
             <div className="col-12">
               <i className="fa-solid fa-star text-warning"></i> 1
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

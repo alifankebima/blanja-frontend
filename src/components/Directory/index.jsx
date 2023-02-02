@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Directory = () => {
+const Directory = (props) => {
   return (
     <div className="container mt-5 mb-3">   
-    Home {'>'} Category {'>'} T-Shirt
+    Home {'>'} Category {'>'} {props.category}
     </div>
   )
 }

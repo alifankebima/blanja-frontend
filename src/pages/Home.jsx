@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import axios from 'axios';
 
 import Navbar from '../components/Navbar';
 import Carousel from '../components/Carousel';
@@ -7,16 +8,17 @@ import NewProduct from '../components/NewProduct';
 import PopularProduct from '../components/PopularProduct';
 
 const Home = () => {
+
   return (
-    <body>
-        <Navbar />
-        <main>
-            <Carousel />
-            <Category />
-            <NewProduct />
-            <PopularProduct />
-        </main>
-  </body>
+    <Fragment>
+      <Navbar />
+      <main>
+        <Carousel />
+        <Category />
+        <NewProduct />
+        <PopularProduct />
+      </main>
+    </Fragment>
   )
 }
 

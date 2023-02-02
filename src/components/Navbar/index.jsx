@@ -1,18 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <div className="sticky-top">
       <nav className="navbar navbar-expand-lg bg-light shadow">
         <div className="container d-flex">
-          <a className="navbar-brand" href="index.html">
+        <Link to={"/"} className="navbar-brand">
             <img src="../assets/svg/logo.svg" alt="Blanja" className="d-inline-block align-text-middle blanja-logo"/>
             <div className="d-inline-block text-dark-orange fw-bolder">Blanja</div>
-          </a>
+        </Link>
 
           <div className="d-none d-md-flex ms-auto w-75 mt-2">
-            <div className="w-100 d-flex">
-              <div className="search-input position-relative w-100 d-flex">
+            <div className="w-75 d-flex">
+              <div className="search-input position-relative w-75 d-flex">
                 <input className="form-control me-2 rounded-pill w-100" type="text" placeholder="Search" aria-label="Search" />
                 <button className="btn search-button" type="submit"><img src="../assets/svg/search.svg" alt="search"/></button>
               </div>
