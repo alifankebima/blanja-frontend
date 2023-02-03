@@ -1,6 +1,43 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+const ProfileButton =() => {
+  const isLogin = localStorage.getItem('token');
+
+  if(isLogin) {
+    return (
+      <div className="d-flex">
+      <Link to={"/profile"} className="navbar-brand">
+        <button className="button mx-1 px-4  rounded-pill bg-dark-orange text-white">
+          <span className='fs-6'>Profile</span>
+        </button>
+        </Link>
+        <Link to={"/logout"} className="navbar-brand">
+      <button className="button mx-1 px-4 rounded-pill bg-dark-orange text-white">
+      <span className='fs-6'>Logout</span>
+      </button>
+      </Link>
+      </div>
+
+      )
+  } else {
+    return(
+    <div className="d-flex">
+    <Link to={"/login"} className="navbar-brand">
+      <button className="button mx-1 px-4  rounded-pill bg-dark-orange text-white">
+        <span className='fs-6'>Login</span>
+      </button>
+      </Link>
+      <Link to={"/register"} className="navbar-brand">
+      <button className="button mx-1 px-4 rounded-pill bg-dark-orange text-white">
+      <span className='fs-6'>Register</span>
+      </button>
+      </Link>
+    </div>
+    )
+  }
+}
+
 const Navbar = () => {
   return (
     <div className="sticky-top">
@@ -23,14 +60,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="d-flex">
-            <button className="button mx-2 px-4 py-1">
-              <a className="text-white" href="/pages/login.html">Login</a>
-            </button>
-            <button className="button mx-2 px-4 py-1">
-              <a className="text-white" href="/pages/register.html">Signup</a>
-            </button>
-          </div>
+<ProfileButton/>
+
         </div>
       </nav>
     </div>

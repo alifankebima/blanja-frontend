@@ -6,8 +6,8 @@ import Product from '../Product';
 const PopularProduct = () => {
   const [products, setProducts] = useState([{}]);
   useEffect(() => {
-    axios.get(`http://localhost:4000/products`).then(function (response){
-      setProducts(response.data);
+    axios.get(`${process.env.REACT_APP_API_URL}/products`).then(function (response){
+      setProducts(response.data.data);
     }).catch(function (error){
       console.log(error);
     });

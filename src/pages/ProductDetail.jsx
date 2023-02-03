@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -15,20 +15,20 @@ import ProductRecommendation from '../components/ProductRecommendation';
 const ProductDetail = () => {
   const{id} = useParams();
 
-  const [product, setProduct] = useState("");
+  const [product, setProduct] = useState([{}]);
   useEffect(() => {
-    axios.get(`http://localhost:4000/products/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/products/${id}`)
     .then(function (response){
-      setProduct(response.data);
+      setProduct(response.data.data);
+      console.log(response.data.data);
     })
     .catch(function (error){
       console.log(error);
     });
-    console.log(product);
   }, [])
   
   return (
-    <div>
+    <Fragment>
       {/* {product.color} */}
       <Navbar />
       <Directory category={product.category}/>
@@ -45,7 +45,7 @@ const ProductDetail = () => {
       <ProductDetailDescription description={product.description} />
       <ProductDetailRating rating={product.rating}/>
       <ProductRecommendation />
-    </div>
+    </Fragment>
   )
 }
 
