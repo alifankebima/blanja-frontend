@@ -1,25 +1,16 @@
-import axios from 'axios';
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../components/Navbar'
 import ProfileSidebar from '../components/ProfileSidebar';
+import getProfileAction from '../config/redux/actions/getProfileAction';
 
 const Profile = () => {
-  const [profile, setProfile] = useState({});
-  const token = localStorage.getItem("token");
-  const config = {
-    headers: { Authorization: `Bearer ${token}` }
-  }
+  const dispatch = useDispatch();
+  const {profile} = useSelector((state) => state.seller);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/sellers/profile`, config)
-      .then(function (response) {
-        setProfile(response.data.data);
-        console.log(response.data.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [])
+    dispatch(getProfileAction())    
+  })
 
 
   return (
@@ -87,7 +78,7 @@ const Profile = () => {
                 </div>
                 <div className="col-8 my-3 mt-4">
                   <button className="button mx-2 px-4 py-1 bg-dark-orange rounded-pill">
-                    <a className="text-white" href="#">Simpan</a>
+                    <span className="text-white">Simpan</span>
                   </button>
                 </div>
               </div>
@@ -95,11 +86,11 @@ const Profile = () => {
             <div className="col-4">
               <div className="row text-center">
                 <div className="col-10 offset-2 border-start">
-                  <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" />
+                  <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" alt="Profile"/>
                 </div>
                 <div className="col-10 offset-2 border-start pt-4">
                   <button className="button bg-soft-white border rounded-pill mx-2 px-4 py-1">
-                    <a className="text-secondary" href="#">Pilih Foto</a>
+                    <span className="text-secondary">Pilih Foto</span>
                   </button>
                 </div>
               </div>

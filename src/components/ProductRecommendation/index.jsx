@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import Product from '../Product';
@@ -6,7 +6,7 @@ import Product from '../Product';
 const ProductRecommendation = () => {
   const [products, setProducts] = useState([{}]);
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/products`).then(function (response){
+    axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/products`).then(function (response){
       setProducts(response.data.data);
     }).catch(function (error){
       console.log(error);

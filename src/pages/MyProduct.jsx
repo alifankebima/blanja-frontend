@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import ProfileSidebar from '../components/ProfileSidebar';
 import DataTable from 'react-data-table-component';
@@ -22,24 +22,22 @@ const MyProduct = () => {
   }
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/sellers/profile`, config)
+    axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/sellers/profile`, config)
       .then(function (response) {
         setProfile(response.data.data);
-        console.log(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
       });
 
-      axios.get(`${process.env.REACT_APP_API_URL}/products`, config)
+      axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/products`, config)
       .then(function (response) {
         setProducts(response.data.data);
-        console.log(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
       });
-  }, [])
+  })
 
   const columns = [
     {

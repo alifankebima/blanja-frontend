@@ -11,39 +11,35 @@ import ProductDetailImage from '../components/ProductDetailImage';
 import ProductDetailInformation from '../components/ProductDetailInformation';
 import ProductDetailRating from '../components/ProductDetailRating';
 import ProductRecommendation from '../components/ProductRecommendation';
+import getProductDetailAction from '../config/redux/actions/getDetailProductAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductDetail = () => {
   const{id} = useParams();
+  const dispatch = useDispatch();
+  const {productDetail} = useSelector((state) => state.product);
 
-  const [product, setProduct] = useState([{}]);
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/products/${id}`)
-    .then(function (response){
-      setProduct(response.data.data);
-      console.log(response.data.data);
-    })
-    .catch(function (error){
-      console.log(error);
-    });
+    dispatch(getProductDetailAction(id));
   }, [])
   
   return (
     <Fragment>
-      {/* {product.color} */}
+      {/* {productDetail.color} */}
       <Navbar />
-      <Directory category={product.category}/>
+      <Directory category={productDetail.category}/>
       <div className="container">
         <div className="row">
           <div className="col-4">
-            <ProductDetailImage image={product.photo}/>
+            <ProductDetailImage image={productDetail.photo}/>
           </div>
           <div className="col-8">
-            <ProductDetailInformation title={product.name} price={product.price} sellerName={product.seller_name} rating={product.rating}/>
+            <ProductDetailInformation title={productDetail.name} price={productDetail.price} sellerName={productDetail.seller_name} rating={productDetail.rating}/>
           </div>
         </div>
       </div>
-      <ProductDetailDescription description={product.description} />
-      <ProductDetailRating rating={product.rating}/>
+      <ProductDetailDescription description={productDetail.description} />
+      <ProductDetailRating rating={productDetail.rating}/>
       <ProductRecommendation />
     </Fragment>
   )

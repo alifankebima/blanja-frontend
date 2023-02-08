@@ -1,17 +1,14 @@
-import React, {useState, useEffect, Fragment} from 'react';
-import axios from 'axios';
+import React, {useEffect} from 'react';
 
 import Product from '../Product';
+import { useDispatch, useSelector } from 'react-redux';
+import getAllProductsAction from '../../config/redux/actions/getAllProductsAction';
 
 const PopularProduct = () => {
-  const [products, setProducts] = useState([{}]);
+  const dispatch = useDispatch();
+  const {products} = useSelector((state) => state.product);
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/products`).then(function (response){
-      setProducts(response.data.data);
-    }).catch(function (error){
-      console.log(error);
-    });
-    console.log(products);
+    dispatch(getAllProductsAction());
   }, [])
 
   return (

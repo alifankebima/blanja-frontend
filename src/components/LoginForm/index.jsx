@@ -11,7 +11,7 @@ const LoginForm = () => {
   const handleSubmitSeller = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/sellers/login`,{
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/sellers/login`,{
         email, password
       });
       console.log(email + password);

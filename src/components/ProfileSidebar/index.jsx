@@ -8,7 +8,7 @@ const ProfileSidebar = (props) => {
         <div className="col-8 offset-4 my-5">
           <div className="row align-items-center">
             <div className="col-4">
-              <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" />
+              <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" alt="Profile"/>
             </div>
             <div className="col-8">
               <span className="fw-semibold">{props.fullname}</span><br />
@@ -18,7 +18,7 @@ const ProfileSidebar = (props) => {
           </div>
         </div>
         <div className="col-8 offset-4 mt-4 d-flex flex-row">
-          <a href="#" className="text-dark">
+          <Link to={"/seller/profile"} className="text-dark">
             <div className="row align-items-center g-2">
               <div className="col-auto">
                 <div className="bg-primary rounded-circle text-center" style={{ height: "30px;width:30px" }}>
@@ -33,7 +33,7 @@ const ProfileSidebar = (props) => {
               </div>
               
             </div>
-          </a>
+          </Link>
         </div>
         <div className="col-8 offset-4 mt-4">
           <div className="row align-items-center g-2">
