@@ -17,7 +17,7 @@ const sellerReducer = (state = initialState, action) => {
         case "PROFILE":
             return{
                 ...state,
-                profile : action.payload
+                sellerProfile : action.payload
             }
         case "REGISTER_SELLER" :
         case "LOGIN_SELLER" :

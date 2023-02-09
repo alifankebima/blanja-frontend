@@ -6,17 +6,18 @@ import getProfileAction from '../config/redux/actions/getProfileAction';
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const {profile} = useSelector((state) => state.seller);
+  const {sellerProfile} = useSelector((state) => state.seller);
 
   useEffect(() => {
-    dispatch(getProfileAction())    
-  })
+    dispatch(getProfileAction())
+    console.log(sellerProfile)
+  }, [])
 
 
   return (
     <div className='bg-soft-white' style={{height:"100vh"}}>
       <Navbar />
-      <ProfileSidebar fullname={profile.fullname} />
+      <ProfileSidebar fullname={sellerProfile.fullname} />
       <div style={{ margin: "5vh 5vw 5vh 30vw" }}>
         <div className="container border rounded bg-white p-4">
           <div className="row">
@@ -33,13 +34,13 @@ const Profile = () => {
                   <span className="text-secondary">Nama</span>
                 </div>
                 <div className="col-8 mt-3">
-                  <input type="name" className="form-control py-2 px-3" id="email" name="name" value={profile.fullname} />
+                  <input type="name" className="form-control py-2 px-3" id="email" name="name" value={sellerProfile.fullname} />
                 </div>
                 <div className="col-4 mt-3 text-end">
                   <span className="text-secondary">Email</span>
                 </div>
                 <div className="col-8 mt-3">
-                  <input type="email" className="form-control py-2 px-3" id="email" name="email" value={profile.email} />
+                  <input type="email" className="form-control py-2 px-3" id="email" name="email" value={sellerProfile.email} />
                 </div>
                 <div className="col-4 mt-3 text-end">
                   <span className="text-secondary">Nomor HP</span>
@@ -47,7 +48,7 @@ const Profile = () => {
                 <div className="col-8 mt-3">
                   <div className="input-group flex-nowrap">
                     <span className="input-group-text" id="addon-wrapping">+62</span>
-                    <input type="text" className="form-control" value={profile.phone_number} />
+                    <input type="text" className="form-control" value={sellerProfile.phone_number} />
                   </div>
                 </div>
                 <div className="col-4 mt-3 text-end">
@@ -71,7 +72,7 @@ const Profile = () => {
                   <span className="text-secondary">Tanggal Lahir</span>
                 </div>
                 <div className="col-8 mt-3">
-                  <input type="date" className="form-control py-2 px-3" id="email" name="name" value={profile.date_of_birth} />
+                  <input type="date" className="form-control py-2 px-3" id="email" name="name" value={sellerProfile.date_of_birth} />
                 </div>
                 <div className="col-4 mt-3">
 
@@ -86,7 +87,7 @@ const Profile = () => {
             <div className="col-4">
               <div className="row text-center">
                 <div className="col-10 offset-2 border-start">
-                  <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" alt="Profile"/>
+                  <img src="/assets/img/sellerProfile/sellerProfile-picture.png" className="img-fluid rounded-circle" alt="sellerProfile"/>
                 </div>
                 <div className="col-10 offset-2 border-start pt-4">
                   <button className="button bg-soft-white border rounded-pill mx-2 px-4 py-1">

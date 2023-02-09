@@ -1,6 +1,5 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 
 import '../assets/css/common.css';
 import '../assets/css/mystyles.css';
@@ -25,7 +24,6 @@ const ProductDetail = () => {
   
   return (
     <Fragment>
-      {/* {productDetail.color} */}
       <Navbar />
       <Directory category={productDetail.category}/>
       <div className="container">
