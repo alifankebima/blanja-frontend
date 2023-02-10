@@ -1,25 +1,75 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons'
+
 import Navbar from '../components/Navbar'
 import ProfileSidebar from '../components/ProfileSidebar';
 import DataTable from 'react-data-table-component';
 import { useDispatch, useSelector } from 'react-redux';
 import getAllProductsAction from '../config/redux/actions/getAllProductsAction';
+import axios from 'axios';
+import ModalMyProduct from '../components/ModalMyProduct';
 
 const MyProduct = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product)
+  const [show, setShow] = useState(false);
+  const [saveImage, setSaveImage] = useState(null);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  function handleUpload(e) {
+    console.log(e.target.files[0]);
+    const uploader = e.target.files[0];
+    setSaveImage(uploader);
+  }
+  
+  const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
+  const token = localStorage.getItem("token");
+  const auth = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+
+  const handleDelete = (id) => {
+    console.log(id)
+    axios
+      .delete(API_URL + "/products/" + id, auth)
+      .then((res) => {
+        alert("delete success");
+        setShow(false)
+        window.location.reload();
+        })
+      .catch((err) => {
+        alert("delete failed");
+        setShow(false)
+      });
+  };
 
   useEffect(() => {
     dispatch(getAllProductsAction());
   }, [])
 
-  const ActionButton = () => {
-    return (
-      <div>
-        <button type="button">Edit</button>
-        <button type="button">Delete</button>
-      </div>
-    )
+  const [data, setData] = useState({
+    name: "",
+    stock: "",
+    price: "",
+    photo: "",
+    description: "",
+    color: "",
+    size: "",
+    rating: "",
+    seller_name: "",
+    category: "",
+    id_category: "",
+    id_seller: ""
+  });
+
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
   };
 
 
@@ -69,10 +119,52 @@ const MyProduct = () => {
     {
       name: 'Action',
       button: true,
-      cell: () => <ActionButton />,
+      cell: (row) => (
+        <div>
+          <ModalMyProduct data={row}/>
+          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#exampleModal${row.id}`}>
+          <FontAwesomeIcon icon={faPenToSquare} />
+          </button>
+        <button type="button" className='btn btn-danger' onClick={() => handleDelete(row.id)}><FontAwesomeIcon icon={faTrash} />
+          </button>
+      </div>
+        ),
     },
   ];
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const dataProduct = new FormData();
+    dataProduct.append("name", data.name);
+    dataProduct.append("stock", data.stock);
+    dataProduct.append("price", data.price);
+    dataProduct.append("photo", saveImage);
+    dataProduct.append("description", data.description);
+    dataProduct.append("size", data.size);
+    dataProduct.append("rating", data.rating);
+    dataProduct.append("seller_name", "Zalora Cloth");
+    dataProduct.append("category", data.category);
+    dataProduct.append("id_category", 1);
+    dataProduct.append("id_seller", 1);
+    const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
+    const token = localStorage.getItem("token");
+    const auth2 = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data"
+      }
+    }
+    console.log(dataProduct);
+    axios.post(`${API_URL}/products`, dataProduct, auth2)
+      .then((res) => {
+        alert("update successful");
+        setShow(false)
+        window.location.reload();
+      }).catch((err) => {
+        alert("update failed")
+        setShow(false)
+      })
+  }
 
   return (
     <Fragment>
@@ -87,49 +179,74 @@ const MyProduct = () => {
                 <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div className="modal-body">
-                <div className="container-fluid">
-                  <div className="row align-items-center">
-                    <form submit={}></form>
-                    <div className="col-4 mt-3 text-end">
-                      <span className="text-secondary">Nama</span>
-                    </div>
-                    <div className="col-8 mt-3">
-                      <input type="name" className="form-control py-2 px-3" id="email" name="name" value="" />
-                    </div>
-                    <div className="col-4 mt-3 text-end">
-                      <span className="text-secondary">Stok</span>
-                    </div>
-                    <div className="col-8 mt-3">
-                      <input type="email" className="form-control py-2 px-3" id="email" name="email" value="" />
-                    </div>
-                    <div className="col-4 mt-3 text-end">
-                      <span className="text-secondary">Harga</span>
-                    </div>
-                    <div className="col-8 mt-3">
-                      <div className="input-group flex-nowrap">
-                      <input type="name" className="form-control py-2 px-3" id="email" name="name" value="" />
+              <form onSubmit={handleSubmit}>
+                <div className="modal-body">
+                  <div className="container-fluid">
+
+                    <div className="row align-items-center">
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Nama</span>
                       </div>
-                    </div>
-                    <div className="col-4 mt-3 text-end">
-                      <span className="text-secondary">Deskripsi</span>
-                    </div>
-                    <div className="col-8 mt-3 d-flex gap-4">
-                    <input type="name" className="form-control py-2 px-3" id="email" name="name" value="" />
-                    </div>
-                    <div className="col-4 mt-3 text-end">
-                      <span className="text-secondary">Ukuran</span>
-                    </div>
-                    <div className="col-8 mt-3">
-                      <input type="date" className="form-control py-2 px-3" id="email" name="name" value="" />
+                      <div className="col-8 mt-3">
+                        <input type="text" className="form-control py-2 px-3" name='name'              
+              onChange={handleChange} />
+                      </div>
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Stok</span>
+                      </div>
+                      <div className="col-8 mt-3">
+                        <input type="text" className="form-control py-2 px-3" name='stock'    
+              onChange={handleChange} />
+                      </div>
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Harga</span>
+                      </div>
+                      <div className="col-8 mt-3">
+                        <input type="text" className="form-control py-2 px-3" name='price'   
+              onChange={handleChange} />
+                      </div>
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Gambar</span>
+                      </div>
+                      <div className="col-8 mt-3">
+                        <input type="file" className="form-control py-2 px-3" name="photo" onChange={handleUpload} />
+                      </div>
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Deskripsi</span>
+                      </div>
+                      <div className="col-8 mt-3 d-flex gap-4">
+                        <input type="text" className="form-control py-2 px-3" name='description' 
+              onChange={handleChange} />
+                      </div>
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Ukuran</span>
+                      </div>
+                      <div className="col-8 mt-3 d-flex gap-4">
+                        <input type="text" className="form-control py-2 px-3" name='size'
+              onChange={handleChange} />
+                      </div>
+                      <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Rating</span>
+                      </div>
+                      <div className="col-8 mt-3 d-flex gap-4">
+                        <input type="text" className="form-control py-2 px-3" name='rating'  
+              onChange={handleChange} />
+                      </div>
+                      {/* <div className="col-4 mt-3 text-end">
+                        <span className="text-secondary">Category</span>
+                      </div>
+                      <div className="col-8 mt-3 d-flex gap-4">
+                        <input type="text" className="form-control py-2 px-3"  name='category'           
+              onChange={handleChange} />
+                      </div> */}
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Save changes</button>
-              </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" className="btn btn-primary">Save changes</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

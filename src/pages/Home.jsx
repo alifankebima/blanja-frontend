@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
 
-import Navbar from '../components/Navbar';
+import PopularProduct from '../components/PopularProduct';
+import NewProduct from '../components/NewProduct';
 import Carousel from '../components/Carousel';
 import Category from '../components/Category';
-import NewProduct from '../components/NewProduct';
-import PopularProduct from '../components/PopularProduct';
+import Navbar from '../components/Navbar';
 
 const Home = () => {
-
   return (
     <Fragment>
       <Navbar />

@@ -1,13 +1,12 @@
-import React from 'react';
+import store from './config/redux/store';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { Provider } from 'react-redux';
+import React from 'react';
 import App from './App';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import './assets/css/common.css';
-import {Provider} from 'react-redux';
-import store from './config/redux/store';
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

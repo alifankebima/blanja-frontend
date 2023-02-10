@@ -1,6 +1,6 @@
-import './assets/css/common.css';
-import './assets/css/mystyles.css';
 import Router from './config/router';
+import './assets/css/index.css';
+import './assets/css/theme.css';
 
 function App() {
   return (
@@ -10,4 +10,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

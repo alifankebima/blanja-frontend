@@ -6,7 +6,7 @@ const LoginRegisterHeader = (props) => {
     if (props.title) {
       setPageTitle(props.title)
     }  
-  }, [props.title])
+  }, [])
 
   return (
     <Fragment>

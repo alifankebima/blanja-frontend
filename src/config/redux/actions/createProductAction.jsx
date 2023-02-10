@@ -17,22 +17,6 @@ const createProductAction = () => async (dispatch) => {
     dataProduct.append("category", "baju");
     dataProduct.append("id_category", "1");
     dataProduct.append("id_seller", "1");
-    // {
-    //     "id": 1,
-    //     "name": "Kemeja muslim pria",
-    //     "stock": "4",
-    //     "price": "120.000",
-    //     "photo": "/assets/img/product/baju-muslim-pria-1.png",
-    //     "description": "Baju muslim pria cocok untuk segala acara muslim",
-    //     "color": "yes",
-    //     "size": "24",
-    //     "rating": "5",
-    //     "seller_name" : "Zalora cloth",
-    //     "category" : "Kemeja muslim",
-    //     "id_category": "5",
-    //     "id_seller": "5" 
-    // }
-
 
     try {
         const products = await axios.get(`${API_URL}/sellers/profile`, auth)
