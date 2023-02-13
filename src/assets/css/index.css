@@ -1,14 +1,6 @@
 .form-control:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-}
-
-/* Navbar */
-.navbar .blanja-logo {
-    height:44px;
-}
-.search-button {
-    margin-left: -60px;
+    border-color: rgba(240, 31, 14, 0.4);
+    box-shadow: 0 0 0 0.2rem rgba(240, 31, 14, 0.2);
 }
 
 .img-category{
@@ -20,7 +12,6 @@
     font-size: 0.75rem !important;
 }
 
-/* Register & Login */
 .selector-customer {
     border-radius: 4px 0px 0px 4px;
     width:11rem;

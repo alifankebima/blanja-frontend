@@ -14,14 +14,13 @@ const LoginForm = () => {
       const response = await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/sellers/login`,{
         email, password
       });
-      console.log(email + password);
       localStorage.setItem("token", response.data.data.token);
       if(localStorage.getItem("token")){
         navigate('/home');
         window.location.reload();
       }
     } catch (error) {
-      console.log(error.response);
+      console.log(error);
     }
   }
 

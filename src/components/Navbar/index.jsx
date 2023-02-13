@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
+
+import { FiFilter } from "react-icons/fi";
+import { BsSearch, BsCart2 } from "react-icons/bs";
+import styles from "./Navbar.module.css";
 
 const ProfileButton = () => {
   const isLogin = localStorage.getItem('token');
   if (isLogin) {
     return (
       // Profile & Logout Button
-      <div className="d-flex">
-        <Link to={"/seller/profile"} className="navbar-brand">
-          <button className="button mx-1 px-4  rounded-pill bg-dark-orange text-white">
+      <div className="d-flex ms-auto">
+        <Link to={"/"} className="me-3">
+          <button className={styles.cartButton}><BsCart2 className='fs-5'/></button>
+        </Link>
+        <Link to={"/seller/profile"} className="me-3">
+          <button className="button px-4 py-1 rounded-pill bg-dark-orange text-white">
             <span className='fs-6'>Profile</span>
           </button>
         </Link>
-        <Link to={"/logout"} className="navbar-brand">
-          <button className="button mx-1 px-4 rounded-pill bg-dark-orange text-white">
-            <span className='fs-6'>Logout</span>
+        <Link to={"/logout"}>
+          <button className="button px-4 py-1 rounded-pill bg-soft-white text-white border border-1">
+            <span className='fs-6 text-secondary'>Logout</span>
           </button>
         </Link>
       </div>
@@ -22,15 +29,18 @@ const ProfileButton = () => {
   } else {
     return (
       // Login & Register Button
-      <div className="d-flex">
-        <Link to={"/login"} className="navbar-brand">
-          <button className="button mx-1 px-4  rounded-pill bg-dark-orange text-white">
+      <div className="d-flex ms-auto">
+        <Link to={"/"} className="me-3">
+          <button className={styles.cartButton}><BsCart2 className='fs-5'/></button>
+        </Link>
+        <Link to={"/login"} className="me-3">
+          <button className="button px-4 py-1 rounded-pill bg-dark-orange text-white">
             <span className='fs-6'>Login</span>
           </button>
         </Link>
-        <Link to={"/register"} className="navbar-brand">
-          <button className="button mx-1 px-4 rounded-pill bg-dark-orange text-white">
-            <span className='fs-6'>Register</span>
+        <Link to={"/register"}>
+          <button className="button px-4 py-1 rounded-pill bg-soft-white text-white border border-1">
+            <span className='fs-6 text-secondary'>Daftar</span>
           </button>
         </Link>
       </div>
@@ -38,33 +48,57 @@ const ProfileButton = () => {
   }
 }
 
+const FilterModal = () => {
+  return (<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="filterModalLabel">Filter Pencarian</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-primary">Reset</button>
+          <button type="button" class="btn btn-primary">Terapkan Filter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  )
+}
+
 const Navbar = () => {
   return (
-    <div className="sticky-top">
-      <nav className="navbar navbar-expand-lg bg-light shadow">
-        <div className="container d-flex">
-          <Link to={"/"} className="navbar-brand">
-            <img src="../assets/svg/logo.svg" alt="Blanja" className="d-inline-block align-text-middle blanja-logo" />
-            <div className="d-inline-block text-dark-orange fw-bolder">Blanja</div>
-          </Link>
+    <Fragment>
+      <FilterModal />
 
-          <div className="d-none d-md-flex ms-auto w-75 mt-2">
-            <div className="w-75 d-flex">
-              <div className="search-input position-relative w-75 d-flex">
-                <input className="form-control me-2 rounded-pill w-100" type="text" placeholder="Search" aria-label="Search" />
-                <button className="btn search-button" type="submit"><img src="../assets/svg/search.svg" alt="search" /></button>
+      <div className="sticky-top">
+        <nav className="navbar navbar-expand-lg bg-light shadow-sm">
+          <div className="container d-flex py-1">
+            {/* Logo & brand name */}
+            <Link to={"/"} className="d-flex flex-nowrap me-5">
+              <img src="../assets/svg/logo.svg" alt="Blanja" className={styles.blanjaLogo} />
+              <div className="ms-2 align-self-center mt-1 fs-5 text-dark-orange fw-bolder">Blanja</div>
+            </Link>
+
+            {/* Search bar */}
+            <div className="d-none d-md-flex w-50">
+              <div className="search-input position-relative w-75 d-flex me-3">
+                <input className="form-control me-2 rounded-pill w-100" type="text" placeholder="Cari di blanja" aria-label="Search" />
+                <button className={styles.searchButton} type="submit"><BsSearch /></button>
               </div>
-              <div className="filter">
-                <button className="btn border-trinary" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa-solid fa-filter text-trinary"></i></button>
-              </div>
+              <button className={styles.filterButton} data-bs-toggle="modal" data-bs-target="#filterModal"><FiFilter /></button>
             </div>
+
+            <ProfileButton />
+
           </div>
-
-          <ProfileButton />
-
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
+    </Fragment>
   )
 }
 

@@ -7,64 +7,48 @@ import ProfileSidebar from '../components/ProfileSidebar';
 import DataTable from 'react-data-table-component';
 import { useDispatch, useSelector } from 'react-redux';
 import getAllProductsAction from '../config/redux/actions/getAllProductsAction';
-import axios from 'axios';
+import createProductAction from '../config/redux/actions/createProductAction';
+import deleteProductAction from '../config/redux/actions/deleteProductAction';
 import ModalMyProduct from '../components/ModalMyProduct';
 
 const MyProduct = () => {
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.product)
-  const [show, setShow] = useState(false);
+  const { products, productDetail } = useSelector((state) => state.product)
   const [saveImage, setSaveImage] = useState(null);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  function handleUpload(e) {
-    console.log(e.target.files[0]);
-    const uploader = e.target.files[0];
-    setSaveImage(uploader);
-  }
-  
-  const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
-  const token = localStorage.getItem("token");
-  const auth = {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  }
 
-  const handleDelete = (id) => {
-    console.log(id)
-    axios
-      .delete(API_URL + "/products/" + id, auth)
-      .then((res) => {
-        alert("delete success");
-        setShow(false)
-        window.location.reload();
-        })
-      .catch((err) => {
-        alert("delete failed");
-        setShow(false)
-      });
-  };
-
+  //Get all products data
   useEffect(() => {
     dispatch(getAllProductsAction());
   }, [])
 
+  //handle image upload
+  function handleUpload(e) {
+    const uploader = e.target.files[0];
+    setSaveImage(uploader);
+  }
+
+  //Delete product
+  const handleDelete = (id) => {
+    dispatch(deleteProductAction(id))
+  };
+
+  //Initial product data
   const [data, setData] = useState({
-    name: "",
-    stock: "",
-    price: "",
-    photo: "",
-    description: "",
-    color: "",
-    size: "",
-    rating: "",
-    seller_name: "",
-    category: "",
-    id_category: "",
-    id_seller: ""
+    name: productDetail.name,
+    stock: productDetail.stock,
+    price: productDetail.price,
+    photo: productDetail.photo,
+    description: productDetail.description,
+    color: productDetail.color,
+    size: productDetail.size,
+    rating: productDetail.rating,
+    seller_name: productDetail.sellerName,
+    category: productDetail.category,
+    id_category: productDetail.id_category,
+    id_seller: productDetail.id_seller
   });
 
+  //Handle seler input
   const handleChange = (e) => {
     setData({
       ...data,
@@ -72,7 +56,7 @@ const MyProduct = () => {
     });
   };
 
-
+  //React data table component colums
   const columns = [
     {
       name: "Image",
@@ -106,11 +90,6 @@ const MyProduct = () => {
       maxWidth: '100px',
       selector: row => row.description,
     },
-    // {
-    //   name: 'Warna',
-    //   maxWidth: '100px',
-    //   selector: row => row.color,
-    // },
     {
       name: 'Ukuran',
       maxWidth: '100px',
@@ -132,40 +111,6 @@ const MyProduct = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const dataProduct = new FormData();
-    dataProduct.append("name", data.name);
-    dataProduct.append("stock", data.stock);
-    dataProduct.append("price", data.price);
-    dataProduct.append("photo", saveImage);
-    dataProduct.append("description", data.description);
-    dataProduct.append("size", data.size);
-    dataProduct.append("rating", data.rating);
-    dataProduct.append("seller_name", "Zalora Cloth");
-    dataProduct.append("category", data.category);
-    dataProduct.append("id_category", 1);
-    dataProduct.append("id_seller", 1);
-    const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
-    const token = localStorage.getItem("token");
-    const auth2 = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data"
-      }
-    }
-    console.log(dataProduct);
-    axios.post(`${API_URL}/products`, dataProduct, auth2)
-      .then((res) => {
-        alert("update successful");
-        setShow(false)
-        window.location.reload();
-      }).catch((err) => {
-        alert("update failed")
-        setShow(false)
-      })
-  }
-
   return (
     <Fragment>
       <div className='bg-soft-white' style={{ height: "100vh" }}>
@@ -179,7 +124,7 @@ const MyProduct = () => {
                 <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={(e) => {e.preventDefault(); dispatch(createProductAction(data, saveImage))}}>
                 <div className="modal-body">
                   <div className="container-fluid">
 
@@ -232,13 +177,6 @@ const MyProduct = () => {
                         <input type="text" className="form-control py-2 px-3" name='rating'  
               onChange={handleChange} />
                       </div>
-                      {/* <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Category</span>
-                      </div>
-                      <div className="col-8 mt-3 d-flex gap-4">
-                        <input type="text" className="form-control py-2 px-3"  name='category'           
-              onChange={handleChange} />
-                      </div> */}
                     </div>
                   </div>
                 </div>

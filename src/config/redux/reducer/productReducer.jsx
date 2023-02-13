@@ -1,35 +1,48 @@
-const initialState = {    
+const initialState = {
     products: [],
     productDetail: {
-        id: "",
         name: "",
-        stock: 0,
-        price: 0,
-        photo: "",
+        stock: "",
+        price: "",
+        photo: null,
         description: "",
         color: "",
-        size: 0,
-        rating: 0,
-        id_category: 0,
-        id_seller: 0
+        size: "",
+        rating: "",
+        seller_name: "",
+        category: "",
+        id_category: "",
+        id_seller: ""
     }
 }
 
 const productReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case "GET_ALL_PRODUCTS":
-            return{
+            return {
                 ...state,
-                products : action.payload
+                products: action.payload
             }
-        case "GET_DETAIL_PRODUCT" :
-            return{
+        case "GET_DETAIL_PRODUCT":
+            return {
                 ...state,
-                productDetail : action.payload
+                productDetail: action.payload
             }
-        case "CREATE_PRODUCT" :
-        case "UPDATE_PRODUCT" :
-        case "DELETE_PRODUCT" :
+        case "CREATE_PRODUCT":
+            return {
+                ...state,
+                productDetail: action.payload
+            }
+        case "UPDATE_PRODUCT":
+            return {
+                ...state,
+                productDetail: action.payload
+            }
+        case "DELETE_PRODUCT":
+            return {
+                ...state,
+                productDetail: action.payload
+            }
         default:
             return state
     }

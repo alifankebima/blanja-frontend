@@ -1,8 +1,6 @@
 import React, {useEffect, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
 
-import '../assets/css/common.css';
-import '../assets/css/mystyles.css';
 import Directory from '../components/Directory';
 import Navbar from '../components/Navbar';
 import ProductDetailDescription from '../components/ProductDetailDescription';

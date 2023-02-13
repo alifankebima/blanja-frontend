@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const createProductAction = (data, saveImage) => async (dispatch) => {
+const createProductAction = (data, saveImage,id) => async (dispatch) => {
     const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
     const token = localStorage.getItem("token");
     const auth = {
@@ -23,15 +23,15 @@ const createProductAction = (data, saveImage) => async (dispatch) => {
     dataProduct.append("id_category", 1);
     dataProduct.append("id_seller", 1);
     console.log(dataProduct)
-    axios.post(`${API_URL}/products`, dataProduct, auth)
+    axios.put(`${API_URL}/products/${id}`, dataProduct, auth)
         .then((res) => {
-            console.log(res.data);
-            dispatch({ type: "CREATE_PRODUCT" });
-            alert("create success")
+            console.log(res);
+            dispatch({ type: "UPDATE_PRODUCT" });
+            alert("update success")
             window.location.reload();
         }).catch((err) => {
             console.log(err)
-            alert("create failed")
+            alert("update failed")
         })
 }
 

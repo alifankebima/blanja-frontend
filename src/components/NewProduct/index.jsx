@@ -17,7 +17,7 @@ const NewProduct = () => {
     <p className="ml-2">You've never seen it before!</p>
     <div className="mt-5">
       <div className="row">
-        {products.map((item) =>
+        {products && products.map((item) =>
           <Product id={item.id} title={item.name} photo={item.photo} price={item.price} rating={item.rating}/>
         )}
       </div>

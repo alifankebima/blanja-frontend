@@ -10,7 +10,6 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(getProfileAction())
-    console.log(sellerProfile)
   }, [])
 
 
