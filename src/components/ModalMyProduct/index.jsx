@@ -5,6 +5,7 @@ import updateProductAction from '../../config/redux/actions/updateProductAction'
 
 const ModalMyProduct = (props) => {
   const dispatch = useDispatch();
+  const [saveImage, setSaveImage] = useState(null);
 
   const [data, setData] = useState({
     name: props.data.name,
