@@ -6,14 +6,27 @@ import updateProductAction from '../../config/redux/actions/updateProductAction'
 const ModalMyProduct = (props) => {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState(props.data.name);
-  const [stock, setStock] = useState(props.data.stock);
-  const [price, setPrice] = useState(props.data.price);
-  const [saveImage, setSaveImage] = useState(null);
-  const [description, setDescription] = useState(props.data.description);
-  const [color, setColor] = useState(props.data.color);
-  const [size, setSize] = useState(props.data.size);
-  const [rating, setRating] = useState(props.data.rating);
+  const [data, setData] = useState({
+    name: props.data.name,
+    stock: props.data.stock,
+    price: props.data.price,
+    photo: props.data.photo,
+    description: props.data.description,
+    color: props.data.color,
+    size: props.data.size,
+    rating: props.data.rating,
+    seller_name: props.data.sellerName,
+    category: props.data.category,
+    id_category: props.data.id_category,
+    id_seller: props.data.id_seller
+  });
+
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   function handleUpload(e) {
     const uploader = e.target.files[0];
@@ -37,21 +50,21 @@ const ModalMyProduct = (props) => {
                     <span className="text-secondary">Nama</span>
                   </div>
                   <div className="col-8 mt-3">
-                    <input type="text" className="form-control py-2 px-3" name='name' value={name} onChange={(e) => setName(e.target.value)}
+                    <input type="text" className="form-control py-2 px-3" name='name' value={data.name} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
                     <span className="text-secondary">Stok</span>
                   </div>
                   <div className="col-8 mt-3">
-                    <input type="text" className="form-control py-2 px-3" name='stock' value={stock} onChange={(e) => setStock(e.target.value)}
+                    <input type="text" className="form-control py-2 px-3" name='stock' value={data.stock} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
                     <span className="text-secondary">Harga</span>
                   </div>
                   <div className="col-8 mt-3">
-                    <input type="text" className="form-control py-2 px-3" name='price' value={price} onChange={(e) => setPrice(e.target.value)}
+                    <input type="text" className="form-control py-2 px-3" name='price' value={data.price} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
@@ -64,21 +77,21 @@ const ModalMyProduct = (props) => {
                     <span className="text-secondary">Deskripsi</span>
                   </div>
                   <div className="col-8 mt-3 d-flex gap-4">
-                    <input type="text" className="form-control py-2 px-3" name='description' value={description} onChange={(e) => setDescription(e.target.value)}
+                    <input type="text" className="form-control py-2 px-3" name='description' value={data.description} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
                     <span className="text-secondary">Ukuran</span>
                   </div>
                   <div className="col-8 mt-3 d-flex gap-4">
-                    <input type="text" className="form-control py-2 px-3" name='size' value={size} onChange={(e) => setSize(e.target.value)}
+                    <input type="text" className="form-control py-2 px-3" name='size' value={data.size} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
                     <span className="text-secondary">Rating</span>
                   </div>
                   <div className="col-8 mt-3 d-flex gap-4">
-                    <input type="text" className="form-control py-2 px-3" name='rating' value={rating} onChange={(e) => setRating(e.target.value)}
+                    <input type="text" className="form-control py-2 px-3" name='rating' value={data.rating} onChange={handleChange}
                     />
                   </div>
                 </div>
