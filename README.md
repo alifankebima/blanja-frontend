@@ -22,14 +22,14 @@ this repository also serves as a learning exercise at HTML Slicing, using bootst
 [Json-server]: <https://github.com/typicode/json-server>
 [React]: <https://reactjs.org/>
 [React-router-dom]: <https://reactrouter.com/en/main>
-[blanja_backend]: <https://github.com/breadsticks64/blanja_backend>
+[blanja-backend]: <https://github.com/alifankebima/blanja-backend>
 
 ## Prerequisite
-This frontend require [blanja_backend] to function properly, clone and follow the steps in the readme repo, and add api url to the .env file
+This frontend require [blanja-backend] to function properly, clone and follow the steps in the readme repo, and add api url to the .env file
 
 ## Installation
 Follow this steps to run the server :
-1. Clone this repository with `git clone https://github.com/breadsticks64/blanja_frontend.git`
-2. Change directory to blanja_frontend with `cd blanja_backend`
+1. Clone this repository with `git clone https://github.com/alifankebima/blanja-frontend.git`
+2. Change directory to blanja_frontend with `cd blanja-frontend`
 3. Run `npm install` to install all of the required modules
 4. Run `npm start` to run the server

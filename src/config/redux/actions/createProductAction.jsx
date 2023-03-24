@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const createProductAction = (data, saveImage) => async (dispatch) => {
-    const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
+    const API_URL = `${process.env.REACT_APP_API_URL}`;
     const token = localStorage.getItem("token");
     const auth = {
         headers: {
