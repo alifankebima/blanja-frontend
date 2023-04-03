@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getAllProductsAction = () => async (dispatch) => {
-    const API_URL = `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`;
+    const API_URL = `${process.env.REACT_APP_API_URL}`;
     try {
         const products = await axios.get(`${API_URL}/products`)
         const result = products.data.data;
