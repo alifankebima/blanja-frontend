@@ -22,10 +22,8 @@ const createProductAction = (data, saveImage,id) => async (dispatch) => {
     dataProduct.append("category", data.category);
     dataProduct.append("id_category", 1);
     dataProduct.append("id_seller", 1);
-    console.log(dataProduct)
     axios.put(`${API_URL}/products/${id}`, dataProduct, auth)
         .then((res) => {
-            console.log(res);
             dispatch({ type: "UPDATE_PRODUCT" });
             alert("update success")
             window.location.reload();

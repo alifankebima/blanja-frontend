@@ -5,8 +5,6 @@ const Test = () => {
   const [product, setProduct] = useState("");
 
   setProduct()
-  console.log(product)
-
   return (
     <div ClassName="container">
       <Product title={product.title} />

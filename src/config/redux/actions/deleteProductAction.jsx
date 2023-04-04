@@ -11,7 +11,6 @@ const deleteProductAction = (id) => async (dispatch) => {
 
     try {
         const result = await axios.delete(`${API_URL}/products/${id}`, auth);
-        console.log(result.data);
         alert("delete success");
         window.location.reload();
     } catch (error) {

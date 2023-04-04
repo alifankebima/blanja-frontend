@@ -4,24 +4,24 @@ const ProductDetailImage = (props) => {
   return (
     <div className="row">
             <div className="col-12">
-              <img className="img-fluid rounded" crossOrigin='anonymous' src={props.image} alt="Main product" />
+              <img className="img-fluid rounded" src={props.image} alt="Main product" />
             </div>
             <div className="col-12 mt-2">
               <div className="row">
                 <div className="col">
-                  <img className="img-fluid rounded" crossOrigin='anonymous' src={props.image} alt="Chooser 1" />
+                  <img className="img-fluid rounded" src={props.image} alt="Chooser 1" />
                 </div>
                 <div className="col">
-                  <img className="img-fluid rounded"  crossOrigin='anonymous' src={props.image} alt="Chooser 2" />
+                  <img className="img-fluid rounded"  src={props.image} alt="Chooser 2" />
                 </div>
                 <div className="col">
-                  <img className="img-fluid rounded" crossOrigin='anonymous' src={props.image} alt="Chooser 3" />
+                  <img className="img-fluid rounded" src={props.image} alt="Chooser 3" />
                 </div>
                 <div className="col">
-                  <img className="img-fluid rounded" crossOrigin='anonymous' src={props.image} alt="Chooser 4" />
+                  <img className="img-fluid rounded" src={props.image} alt="Chooser 4" />
                 </div>
                 <div className="col">
-                  <img className="img-fluid rounded" crossOrigin='anonymous' src={props.image} alt="Chooser 5" />
+                  <img className="img-fluid rounded" src={props.image} alt="Chooser 5" />
                 </div>
               </div>
             </div>

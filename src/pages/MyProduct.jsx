@@ -65,7 +65,7 @@ const MyProduct = () => {
         <img
           src={row.photo}
           alt={row.title}
-          crossOrigin='anonymous'
+          
           style={{ width: "100px", marginBottom: "10px", marginTop: "10px", borderRadius: '15px' }}
         />
       ),

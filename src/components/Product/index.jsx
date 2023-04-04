@@ -8,7 +8,7 @@ const Product = (props) => {
     <div className="col-md-3 col-sm-6 mb-4">
       <Link to={"/products/" + props.id}>
         <div className="border rounded">
-          <img className="w-100" crossOrigin='anonymous' src={props.photo} alt="product" />
+          <img className="w-100" src={props.photo} alt="product" />
           <div className="p-2">
             <h6 className="card-title text-dark">{props.title}</h6>
             <h5 className="text-dark-orange">Rp {props.price}</h5>

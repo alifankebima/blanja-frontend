@@ -42,7 +42,7 @@ const ModalMyProduct = (props) => {
             <h1 className="modal-title fs-5" id="exampleModalLabel">{props.data.name}</h1>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form onSubmit={(e) => { e.preventDefault(); dispatch(updateProductAction(props.data, saveImage, props.data.id)) }}>
+          <form onSubmit={(e) => { e.preventDefault(); dispatch(updateProductAction(data, saveImage, props.data.id)) }}>
             <div className="modal-body">
               <div className="container-fluid">
                 <div className="row align-items-center">
