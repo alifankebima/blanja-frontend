@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const LoginForm = () => {
           </div>
         </div>
         <div>
-          <p class="mt-5">Don't have a Blanja account? <a href="/pages/register.html">Register</a></p>
+          <p class="mt-5">Don't have a Blanja account? <Link to={"/register"}>Register</Link></p>
         </div>
       </div>
     </div>

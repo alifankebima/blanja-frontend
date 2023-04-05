@@ -48,34 +48,34 @@ const ModalMyProduct = (props) => {
                 <div className="row align-items-center">
                   <div className="col-4 mt-3 text-end">
                     {props.id}
-                    <span className="text-secondary">Nama</span>
+                    <span className="text-secondary">Name</span>
                   </div>
                   <div className="col-8 mt-3">
                     <input type="text" className="form-control py-2 px-3" name='name' value={data.name} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
-                    <span className="text-secondary">Stok</span>
+                    <span className="text-secondary">Stock</span>
                   </div>
                   <div className="col-8 mt-3">
                     <input type="text" className="form-control py-2 px-3" name='stock' value={data.stock} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
-                    <span className="text-secondary">Harga</span>
+                    <span className="text-secondary">Price</span>
                   </div>
                   <div className="col-8 mt-3">
                     <input type="text" className="form-control py-2 px-3" name='price' value={data.price} onChange={handleChange}
                     />
                   </div>
                   <div className="col-4 mt-3 text-end">
-                    <span className="text-secondary">Gambar</span>
+                    <span className="text-secondary">Photo</span>
                   </div>
                   <div className="col-8 mt-3">
                     <input type="file" className="form-control py-2 px-3" name="photo" onChange={handleUpload} />
                   </div>
                   <div className="col-4 mt-3 text-end">
-                    <span className="text-secondary">Deskripsi</span>
+                    <span className="text-secondary">Description</span>
                   </div>
                   <div className="col-8 mt-3 d-flex gap-4">
                     <input type="text" className="form-control py-2 px-3" name='description' value={data.description} onChange={handleChange}

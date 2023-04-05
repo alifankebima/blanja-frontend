@@ -59,7 +59,7 @@ const MyProduct = () => {
   //React data table component colums
   const columns = [
     {
-      name: "Image",
+      name: "Photo",
       selector: "image",
       cell: (row) => (
         <img
@@ -71,27 +71,27 @@ const MyProduct = () => {
       ),
     },
     {
-      name: 'Nama',
+      name: 'Name',
       maxWidth: '200px',
       selector: row => row.name,
     },
     {
-      name: 'Stok',
+      name: 'Stock',
       maxWidth: '100px',
       selector: row => row.stock,
     },
     {
-      name: 'Harga',
+      name: 'Price',
       maxWidth: '100px',
       selector: row => row.price,
     },
     {
-      name: 'Deskripsi',
+      name: 'Description',
       maxWidth: '100px',
       selector: row => row.description,
     },
     {
-      name: 'Ukuran',
+      name: 'Size',
       maxWidth: '100px',
       selector: row => row.size,
     },
@@ -101,7 +101,7 @@ const MyProduct = () => {
       cell: (row) => (
         <div>
           <ModalMyProduct data={row}/>
-          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target={`#exampleModal${row.id}`}>
+          <button type="button" className="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target={`#exampleModal${row.id}`}>
           <FontAwesomeIcon icon={faPenToSquare} />
           </button>
         <button type="button" className='btn btn-danger' onClick={() => handleDelete(row.id)}><FontAwesomeIcon icon={faTrash} />
@@ -121,7 +121,7 @@ const MyProduct = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 className="modal-title fs-5" id="exampleModalLabel">Tambahkan Produk</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <form onSubmit={(e) => {e.preventDefault(); dispatch(createProductAction(data, saveImage))}}>
@@ -196,13 +196,13 @@ const MyProduct = () => {
           <div className="container border rounded bg-white p-4">
             <div className="row">
               <div className="col">
-                <h5 className="fw-semibold">Produk Saya</h5>
-                <h6 className="fw-light text-secondary">Kelola produk toko anda</h6>
+                <h5 className="fw-semibold">My Products</h5>
+                <h6 className="fw-light text-secondary">Manage your store products</h6>
               </div>
             </div>
             <hr />
             <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Tambahkan Produk
+              Add Product
             </button>
             <DataTable
               columns={columns}

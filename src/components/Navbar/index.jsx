@@ -87,10 +87,11 @@ const Navbar = () => {
             {/* Search bar */}
             <div className="d-none d-md-flex w-50">
               <div className="search-input position-relative w-75 d-flex me-3">
-                <input className="form-control me-2 rounded-pill w-100" type="text" placeholder="Cari di blanja" aria-label="Search" />
+                <input className="form-control me-2 rounded-pill w-100" type="text" placeholder="Search" aria-label="Search" />
                 <button className={styles.searchButton} type="submit"><BsSearch /></button>
               </div>
-              <button className={styles.filterButton} data-bs-toggle="modal" data-bs-target="#filterModal"><FiFilter /></button>
+              {/* <button className={styles.filterButton} data-bs-toggle="modal" data-bs-target="#filterModal"><FiFilter /></button> */}
+              <button className={styles.filterButton}><FiFilter /></button>
             </div>
 
             <ProfileButton />

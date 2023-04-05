@@ -7,7 +7,7 @@ const Directory = (props) => {
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item"><Link to={'/'}>Home</Link></li>
-          <li className="breadcrumb-item"><Link to={'/'}>Category</Link></li>
+          <li className="breadcrumb-item"><Link to={'/'}>Product</Link></li>
           <li className="breadcrumb-item active" aria-current="page">{props.category}</li>
         </ol>
       </nav>

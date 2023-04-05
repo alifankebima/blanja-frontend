@@ -21,7 +21,7 @@ const ProductDetailInformation = (props) => {
     </div>
     <div className="col-12 mt-3">
       <span className="fw-light text-secondary">Price</span>
-      <h3 className="fw-bold">Rp { props.price }</h3>
+      <h3 className="fw-bold">{ props.price }</h3>
     </div>
     <div className="col-12 fs-1 mt-3">
       <h6 className="fw-light">Color</h6>

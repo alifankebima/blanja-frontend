@@ -20,17 +20,26 @@ const ProductDetail = () => {
     dispatch(getProductDetailAction(id));
   }, [])
   
+  const currencyFormat = (num) => {
+    return (
+      'Rp. ' +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    );
+  };
+
   return (
     <Fragment>
       <Navbar />
-      <Directory category={productDetail.category}/>
+      <Directory category={productDetail.name}/>
       <div className="container">
         <div className="row">
           <div className="col-4">
             <ProductDetailImage image={productDetail.photo}/>
           </div>
           <div className="col-8">
-            <ProductDetailInformation title={productDetail.name} price={productDetail.price} sellerName={productDetail.seller_name} rating={productDetail.rating}/>
+            <ProductDetailInformation title={productDetail.name} price={currencyFormat(productDetail.price)} sellerName={productDetail.seller_name} rating={productDetail.rating}/>
           </div>
         </div>
       </div>

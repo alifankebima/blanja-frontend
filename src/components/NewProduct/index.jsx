@@ -11,14 +11,23 @@ const NewProduct = () => {
     dispatch(getAllProductsAction());
   }, [])
 
+  const currencyFormat = (num) => {
+    return (
+      'Rp. ' +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    );
+  };
+
   return (
     <section className="container mt-5">
-    <h2 className="ml-2 fw-bolder">New</h2>
+    <h2 className="ml-2">New</h2>
     <p className="ml-2">You've never seen it before!</p>
     <div className="mt-5">
       <div className="row">
         {products && products.map((item) =>
-          <Product id={item.id} title={item.name} photo={item.photo} price={item.price} rating={item.rating}/>
+          <Product id={item.id} title={item.name} photo={item.photo} price={currencyFormat(item.price)} rating={item.rating}/>
         )}
       </div>
     </div>

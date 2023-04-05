@@ -11,7 +11,7 @@ const Product = (props) => {
           <img className="w-100" src={props.photo} alt="product" />
           <div className="p-2">
             <h6 className="card-title text-dark">{props.title}</h6>
-            <h5 className="text-dark-orange">Rp {props.price}</h5>
+            <h5 className="text-dark-orange">{props.price}</h5>
             <div className="d-flex gap-1 align-items-center text-warning">
               <FontAwesomeIcon icon={faStar} />
               <FontAwesomeIcon icon={faStar} />

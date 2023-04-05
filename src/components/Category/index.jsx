@@ -4,7 +4,7 @@ const Category = () => {
   return (
     <section>
     <div className="container mt-4">
-      <h2 className="fw-bolder">Category</h2>
+      <h2 className="fw-semibold">Category</h2>
     <p>What are you currently looking for?</p>
     </div>
     <div className="container">
