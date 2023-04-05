@@ -56,11 +56,21 @@ const MyProduct = () => {
     });
   };
 
+  const currencyFormat = (num) => {
+    return (
+      'Rp. ' +
+      Number(num)
+        .toFixed(0)
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    );
+  };
+
   //React data table component colums
   const columns = [
     {
       name: "Photo",
       selector: "image",
+      maxWidth: '120px',
       cell: (row) => (
         <img
           src={row.photo}
@@ -72,27 +82,27 @@ const MyProduct = () => {
     },
     {
       name: 'Name',
-      maxWidth: '200px',
+      maxWidth: '160px',
       selector: row => row.name,
     },
     {
       name: 'Stock',
-      maxWidth: '100px',
+      width: '80px',
       selector: row => row.stock,
     },
     {
       name: 'Price',
-      maxWidth: '100px',
-      selector: row => row.price,
+      maxWidth: '120px',
+      selector: row => currencyFormat(row.price),
     },
     {
       name: 'Description',
-      maxWidth: '100px',
+      maxWidth: '140px',
       selector: row => row.description,
     },
     {
       name: 'Size',
-      maxWidth: '100px',
+      maxWidth: '60px',
       selector: row => row.size,
     },
     {
