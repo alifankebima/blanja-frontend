@@ -4,7 +4,7 @@ import RegisterForm from '../components/RegisterForm'
 
 const Register = () => {
   return (
-    <div class="container text-center">
+    <div className="container text-center">
       <LoginRegisterHeader title="Register" />
       <RegisterForm />
     </div>

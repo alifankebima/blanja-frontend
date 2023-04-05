@@ -18,7 +18,7 @@ const PopularProduct = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/products?sortBy&limit=8`)
     .then((result) => setProducts(result.data.data))
     .catch(error => console.log(error))
-  })
+  }, [])
 
   const currencyFormat = (num) => {
     return (

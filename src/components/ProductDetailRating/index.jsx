@@ -24,40 +24,40 @@ const ProductDetailRating = (props) => {
           <div className="d-flex align-items-center">
             <FaStar className='text-warning me-1' />
             <div className="text-secondary mt-1 ms-1">5</div>
-            <div class="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-warning" style={{ width: "100%" }}></div>
+            <div className="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <div className="progress-bar bg-warning" style={{ width: "100%" }}></div>
             </div>
             <div className="text-secondary mt-1 ms-3">{props.rating}</div>
           </div>
           <div className="d-flex align-items-center">
             <FaStar className='text-warning me-1' />
             <div className="text-secondary mt-1 ms-1">4</div>
-            <div class="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-warning" style={{ width: "0%" }}></div>
+            <div className="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <div className="progress-bar bg-warning" style={{ width: "0%" }}></div>
             </div>
             <div className="text-secondary mt-1 ms-3">0</div>
           </div>
           <div className="d-flex align-items-center">
             <FaStar className='text-warning me-1' />
             <div className="text-secondary mt-1 ms-1">3</div>
-            <div class="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-warning" style={{ width: "0%" }}></div>
+            <div className="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <div className="progress-bar bg-warning" style={{ width: "0%" }}></div>
             </div>
             <div className="text-secondary mt-1 ms-3">0</div>
           </div>
           <div className="d-flex align-items-center">
             <FaStar className='text-warning me-1' />
             <div className="text-secondary mt-1 ms-1">2</div>
-            <div class="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-warning" style={{ width: "0%" }}></div>
+            <div className="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <div className="progress-bar bg-warning" style={{ width: "0%" }}></div>
             </div>
             <div className="text-secondary mt-1 ms-3">0</div>
           </div>
           <div className="d-flex align-items-center">
             <FaStar className='text-warning me-1' />
             <div className="text-secondary mt-1" style={{marginLeft:"7px"}}>1</div>
-            <div class="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar bg-warning" style={{ width: "0%" }}></div>
+            <div className="progress ms-3" role="progressbar" style={{ width: "120px", height: "6px" }} aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+              <div className="progress-bar bg-warning" style={{ width: "0%" }}></div>
             </div>
             <div className="text-secondary mt-1 ms-3">0</div>
           </div>

@@ -40,7 +40,7 @@ const ProfileButton = () => {
         </Link>
         <Link to={"/register"}>
           <button className="button px-4 py-1 rounded-pill bg-soft-white text-white border border-1">
-            <span className='fs-6 text-secondary'>Daftar</span>
+            <span className='fs-6 text-secondary'>Register</span>
           </button>
         </Link>
       </div>
@@ -49,20 +49,20 @@ const ProfileButton = () => {
 }
 
 const FilterModal = () => {
-  return (<div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="filterModalLabel">Filter Pencarian</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  return (<div className="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+    <div className="modal-dialog">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h1 className="modal-title fs-5" id="filterModalLabel">Filter Pencarian</h1>
+          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div className="modal-body">
           ...
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-          <button type="button" class="btn btn-primary">Reset</button>
-          <button type="button" class="btn btn-primary">Terapkan Filter</button>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" className="btn btn-primary">Reset</button>
+          <button type="button" className="btn btn-primary">Terapkan Filter</button>
         </div>
       </div>
     </div>

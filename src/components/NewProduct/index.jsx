@@ -22,7 +22,7 @@ const NewProduct = () => {
 
   return (
     <section className="container mt-5">
-    <h2 className="ml-2">New</h2>
+    <h2 className="ml-2 fw-semibold">New</h2>
     <p className="ml-2">You've never seen it before!</p>
     <div className="mt-5">
       <div className="row">
