@@ -15,7 +15,7 @@ const PopularProduct = () => {
   const [products, setProducts] = useState();
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/products?sortBy&limit=8`)
+    axios.get(`${process.env.REACT_APP_API_URL}/products?sortBy=id&limit=8`)
     .then((result) => setProducts(result.data.data))
     .catch(error => console.log(error))
   }, [])
