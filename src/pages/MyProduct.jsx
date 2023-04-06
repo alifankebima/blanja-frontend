@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import getAllProductsAction from '../config/redux/actions/getAllProductsAction';
 import createProductAction from '../config/redux/actions/createProductAction';
 import deleteProductAction from '../config/redux/actions/deleteProductAction';
+import getProfileAction from '../config/redux/actions/getProfileAction';
 import ModalMyProduct from '../components/ModalMyProduct';
 
 const MyProduct = () => {
