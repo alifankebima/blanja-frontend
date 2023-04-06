@@ -16,6 +16,12 @@ const MyProduct = () => {
   const { products, productDetail } = useSelector((state) => state.product)
   const [saveImage, setSaveImage] = useState(null);
 
+    const {sellerProfile} = useSelector((state) => state.seller);
+  
+    useEffect(() => {
+      dispatch(getProfileAction())
+    }, [])
+
   //Get all products data
   useEffect(() => {
     dispatch(getAllProductsAction());
@@ -125,13 +131,13 @@ const MyProduct = () => {
     <Fragment>
       <div className='bg-soft-white' style={{ height: "100vh" }}>
         <Navbar />
-        <ProfileSidebar fullname="Alif Anke Bima" />
+        <ProfileSidebar fullname={sellerProfile.fullname} />
 
         <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h1 className="modal-title fs-5" id="exampleModalLabel">Tambahkan Produk</h1>
+                <h1 className="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <form onSubmit={(e) => {e.preventDefault(); dispatch(createProductAction(data, saveImage))}}>
@@ -140,41 +146,41 @@ const MyProduct = () => {
 
                     <div className="row align-items-center">
                       <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Nama</span>
+                        <span className="text-secondary">Name</span>
                       </div>
                       <div className="col-8 mt-3">
                         <input type="text" className="form-control py-2 px-3" name='name'              
               onChange={handleChange} />
                       </div>
                       <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Stok</span>
+                        <span className="text-secondary">Stock</span>
                       </div>
                       <div className="col-8 mt-3">
                         <input type="text" className="form-control py-2 px-3" name='stock'    
               onChange={handleChange} />
                       </div>
                       <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Harga</span>
+                        <span className="text-secondary">Price</span>
                       </div>
                       <div className="col-8 mt-3">
                         <input type="text" className="form-control py-2 px-3" name='price'   
               onChange={handleChange} />
                       </div>
                       <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Gambar</span>
+                        <span className="text-secondary">Photo</span>
                       </div>
                       <div className="col-8 mt-3">
                         <input type="file" className="form-control py-2 px-3" name="photo" onChange={handleUpload} />
                       </div>
                       <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Deskripsi</span>
+                        <span className="text-secondary">Description</span>
                       </div>
                       <div className="col-8 mt-3 d-flex gap-4">
                         <input type="text" className="form-control py-2 px-3" name='description' 
               onChange={handleChange} />
                       </div>
                       <div className="col-4 mt-3 text-end">
-                        <span className="text-secondary">Ukuran</span>
+                        <span className="text-secondary">Size</span>
                       </div>
                       <div className="col-8 mt-3 d-flex gap-4">
                         <input type="text" className="form-control py-2 px-3" name='size'

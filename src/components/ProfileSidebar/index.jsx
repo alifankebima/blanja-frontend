@@ -11,7 +11,7 @@ const ProfileSidebar = (props) => {
         <div className="col-8 offset-4 my-5">
           <div className="row align-items-center">
             <div className="col-4">
-              <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" alt="Profile" />
+              <img src="/assets/img/profile/alif.jpeg" className="img-fluid rounded-circle" alt="Profile" />
             </div>
             <div className="col-8">
               <span className="fw-semibold">{props.fullname}</span><br />

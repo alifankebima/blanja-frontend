@@ -86,7 +86,7 @@ const Profile = () => {
             <div className="col-4">
               <div className="row text-center">
                 <div className="col-10 offset-2 border-start">
-                  <img src="/assets/img/profile/profile-picture.png" className="img-fluid rounded-circle" alt="sellerProfile"/>
+                  <img src="/assets/img/profile/alif.jpeg" className="img-fluid rounded-circle" alt="sellerProfile"/>
                 </div>
                 <div className="col-10 offset-2 border-start pt-4">
                   <button className="button bg-soft-white border rounded-pill mx-2 px-4 py-1">
