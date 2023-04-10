@@ -9,7 +9,7 @@
     <br />
     <a href="https://blanja-frontend-alifankebima.vercel.app">View Demo</a>
     ·
-    <a href="blanja-backend-production-71bf.up.railway.app">Api Demo</a>
+    <a href="https://blanja-backend-production-71bf.up.railway.app">Api Demo</a>
   </p>
 </p>
 
