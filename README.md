@@ -72,13 +72,13 @@ cd blanja-frontend
 npm install
 ```
 
-5. Create and configure `.env` file in the root directory, example env are provided in [.env.example](./.env.example)
+4. Create and configure `.env` file in the root directory, example env are provided in [.env.example](./.env.example)
 
 ```env
 REACT_APP_API_URL=[ Backend URL ]
 ```
 
-6. Run this command to run the server
+5. Run this command to run the server
 
 ```sh
 npm start
