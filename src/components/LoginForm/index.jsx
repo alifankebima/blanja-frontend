@@ -1,26 +1,36 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2';
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleSubmitSeller = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/sellers/login`,{
+      if (!email) throw "Email must not be empty!"
+      if (!password) throw "Password must not be empty!"
+      
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/sellers/login`, {
         email, password
       });
-      localStorage.setItem("token", response.data.data.token);
-      if(localStorage.getItem("token")){
+      console.log(response)
+      if(response.data.data) localStorage.setItem("token", response.data.data.token);
+      if (localStorage.getItem("token")) {
         navigate('/home');
         window.location.reload();
       }
     } catch (error) {
-      console.log(error);
+      error = error.response ? error.response.data.message : error
+      Swal.fire({
+        title: 'Login failed',
+        text: `${error || 'Something went wrong'}`,
+        icon: 'error'
+      })
     }
   }
 
@@ -51,10 +61,10 @@ const LoginForm = () => {
           <div className="tab-pane fade" id="pills-Seller" role="tabpanel" aria-labelledby="pills-Seller-tab" tabindex="0">
             <form className="pt-4" onSubmit={handleSubmitSeller}>
               <div className="mb-3">
-                <input type="email" className="form-control py-2 px-3" id="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" className="form-control py-2 px-3" id="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="mb-3">
-                <input type="password" className="form-control py-2 px-3" id="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" className="form-control py-2 px-3" id="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
 
               <button type="submit" className="button w-100 p-2 rounded-pill bg-dark-orange text-soft-white mt-4">Login</button>
